@@ -1,4 +1,4 @@
-- 👋 Hi, I’m @ianJINW
+- 👋 Hi, I’m Njenga Ian Josh 
 - 👀 I’m interested in web development
 - 🌱 I’m currently learning js and python
 
