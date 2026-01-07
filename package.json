@@ -1,0 +1,21 @@
+{
+  "name": "ian-josh",
+  "version": "1.0.0",
+  "description": "",
+  "workspaces": [
+    "client","server"
+  ],
+  "scripts": {
+    "dev": "concurrently -n CLIENT,SERVER -c cyan,magenta \"npm --workspace=client run dev\" \"npm --workspace-=server run dev\" ",
+    "build": "concurrently -n CLIENT,SERVER -c yellow,green \"npm --workspace=client run build\" \"npm --workspace-=server run build\" ",
+    "test": "concurrently -n CLIENT,SERVER -c blue,red \"npm --workspace=client test\" \"npm --workspace-=server test\" ",
+    "install": "concurrently -n CLIENT,SERVER -c black,orange \"npm --workspace=client install\" \"npm --workspace-=server install\" "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
