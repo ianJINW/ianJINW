@@ -1,7 +1,10 @@
 {
   "name": "ian-josh",
   "version": "1.0.0",
-  "workspaces": ["client", "server"],
+  "workspaces": [
+    "client",
+    "server"
+  ],
   "scripts": {
     "dev": "concurrently -n CLIENT,SERVER -c cyan,magenta \"npm --workspace=client run dev\" \"npm --workspace=server run dev\"",
     "build": "concurrently -n CLIENT,SERVER -c yellow,green \"npm --workspace=client run build\" \"npm --workspace=server run build\"",
