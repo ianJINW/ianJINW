@@ -1,0 +1,23 @@
+{
+  "name": "ianjinw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "test": "jest",
+    "dev": "concurrently -n client,server -c cyan,green \"npm:dev --workspace=client\" \"npm:dev --workspace=server\"",
+    "build": "npm run build --workspaces --if-present",
+    "start": "node server/dist/index.js",
+    "install:all": "npm install"
+  },"devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
