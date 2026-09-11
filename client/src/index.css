@@ -1,111 +1,309 @@
+@import "tailwindcss";
+
+/*
+  ============================================================
+  DESIGN TOKENS
+  ============================================================
+  Dark-first developer portfolio theme.
+
+  Primary:
+    Emerald Green  -> #10B981
+
+  Accent:
+    Spring Green   -> #00FF87
+*/
+
+/* ============================================================
+   LIGHT THEME
+   ============================================================ */
+
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
+  /* Backgrounds */
+  --bg: #ffffff;
+  --surface: #f5faf7;
+  --surface-2: #e9f5ee;
+
+  /* Typography */
+  --heading: #07130d;
+  --text: #20352a;
+  --muted: #60786a;
+  --text-h: #07130d;
+
+  /* Borders */
+  --border: #cfe0d4;
+
+  /* Brand */
+  --accent: #10b981;
+  --accent-hover: #059669;
+  --accent-soft: #d1fae5;
+
+  /*
+    Spring green should be used sparingly:
+    hero highlights, special labels, subtle effects.
+  */
+  --accent-bright: #00ff87;
+
+  /* Effects */
+  --glow: rgba(16, 185, 129, 0.25);
+  --accent-bg: rgba(16, 185, 129, 0.1);
+  --accent-border: rgba(16, 185, 129, 0.35);
+
+  /* Code */
+  --code-bg: #edf5f0;
+
+  /* Social buttons / surfaces */
+  --social-bg: rgba(233, 245, 238, 0.8);
+
+  /* Shadows */
   --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+    rgba(16, 185, 129, 0.08) 0 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  /* Fonts */
+  --sans: system-ui, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, "JetBrains Mono", Consolas, monospace;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
+  /* Base */
+  font: 17px/1.5 var(--sans);
   color: var(--text);
   background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
 }
+
+
+/* ============================================================
+   DARK THEME
+   ============================================================ */
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
+    /* Backgrounds */
+    --bg: #0a0f0d;
+    --surface: #111816;
+    --surface-2: #18221e;
+
+    /* Typography */
+    --heading: #f0fdf4;
+    --text: #d1ddd6;
+    --muted: #8fa39a;
+    --text-h: #f0fdf4;
+
+    /* Borders */
+    --border: #26352f;
+
+    /* Brand */
+    --accent: #10b981;
+    --accent-hover: #34d399;
+    --accent-soft: #064e3b;
+
+    /*
+      Bright spring green accent.
+    */
+    --accent-bright: #00ff87;
+
+    /* Effects */
+    --glow: rgba(16, 185, 129, 0.28);
+    --accent-bg: rgba(16, 185, 129, 0.12);
+    --accent-border: rgba(16, 185, 129, 0.4);
+
+    /* Code */
+    --code-bg: #18221e;
+
+    /* Social */
+    --social-bg: rgba(24, 34, 30, 0.8);
+
+    /* Shadows */
     --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+      rgba(0, 255, 135, 0.06) 0 10px 15px -3px,
+      rgba(0, 0, 0, 0.35) 0 4px 6px -2px;
   }
 
+  /*
+    Keep social icons visible on dark backgrounds.
+  */
   #social .button-icon {
-    filter: invert(1) brightness(2);
+    filter: invert(1) brightness(1.8);
   }
 }
+
+
+/* ============================================================
+   TAILWIND THEME TOKENS
+   ============================================================ */
+
+@theme inline {
+  /* Backgrounds */
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+
+  /* Typography */
+  --color-heading: var(--heading);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+
+  /* Borders */
+  --color-border: var(--border);
+
+  /* Brand */
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-bright: var(--accent-bright);
+
+  /* Effects */
+  --color-glow: var(--glow);
+
+  /* Fonts */
+  --font-sans: var(--sans);
+  --font-mono: var(--mono);
+}
+
+
+/* ============================================================
+   ROOT
+   ============================================================ */
 
 #root {
-  width: 1126px;
-  max-width: 100%;
+  /*
+    Center the portfolio and constrain the
+    maximum content width on large screens.
+  */
+  inline-size: 1126px;
+  max-inline-size: 100%;
+
   margin: 0 auto;
-  text-align: center;
+
+  /*
+    Subtle vertical frame around the portfolio.
+  */
   border-inline: 1px solid var(--border);
-  min-height: 100svh;
+
+  min-block-size: 100svh;
+
   display: flex;
   flex-direction: column;
+
   box-sizing: border-box;
+
+  background: var(--bg);
 }
+
+
+/* ============================================================
+   BODY
+   ============================================================ */
 
 body {
   margin: 0;
+
+  color: var(--text);
+  background: var(--bg);
+
+  font-family: var(--sans);
 }
+
+
+/* ============================================================
+   HEADINGS
+   ============================================================ */
 
 h1,
 h2 {
-  font-family: var(--heading);
+  font-family: var(--sans);
   font-weight: 500;
-  color: var(--text-h);
+  color: var(--heading);
 }
+
+
+/* ============================================================
+   H1
+   ============================================================ */
 
 h1 {
   font-size: 56px;
+
   letter-spacing: -1.68px;
+
   margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
 }
+
+
+/* ============================================================
+   H2
+   ============================================================ */
+
 h2 {
   font-size: 24px;
   line-height: 118%;
+
   letter-spacing: -0.24px;
+
   margin: 0 0 8px;
-  @media (max-width: 1024px) {
+}
+
+
+/* ============================================================
+   RESPONSIVE TYPOGRAPHY
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+
+  h2 {
     font-size: 20px;
   }
 }
+
+
+/* ============================================================
+   PARAGRAPHS
+   ============================================================ */
+
 p {
   margin: 0;
 }
 
+
+/* ============================================================
+   INLINE CODE / COUNTERS
+   ============================================================ */
+
 code,
 .counter {
   font-family: var(--mono);
+
   display: inline-flex;
+
   border-radius: 4px;
-  color: var(--text-h);
+
+  color: var(--heading);
 }
+
+
+/* ============================================================
+   INLINE CODE
+   ============================================================ */
 
 code {
   font-size: 15px;
   line-height: 135%;
+
   padding: 4px 8px;
+
   background: var(--code-bg);
+}
+
+/* ============================================================
+   TEXT SELECTION
+   ============================================================ */
+
+::selection {
+  color: #000000;
+  background: var(--accent-bright);
 }
