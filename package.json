@@ -13,11 +13,15 @@
     "build": "npm run build --workspaces --if-present",
     "start": "node server/dist/index.js",
     "install:all": "npm install"
-  },"devDependencies": {
+  },
+  "devDependencies": {
     "concurrently": "^9.1.2"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  }
 }
